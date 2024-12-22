@@ -1,0 +1,24 @@
+{
+  "name": "eruditeartistry",
+  "version": "1.0.0",
+  "description": "Website for erudite artistry",
+  "main": "index.js",
+  "scripts": {
+    "server": "webpack",
+    "frontend": "webpack --config ./webpack.frontend.js && npm run html && npm run style",
+    "html": "touch dist/index.html && rm dist/index.html && cp www/index.html dist/index.html",
+    "style": "rm -rf dist/style && cp -a www/style dist",
+    "build": "npm run server && npm run frontend",
+    "start": "node dist/app.js",
+    "serve": "npm run server && npm run start",
+    "refresh": "npm run build && npm run start"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "byrd": "^0.1.1"
+  },
+  "devDependencies": {
+    "webpack-cli": "^6.0.1"
+  }
+}
